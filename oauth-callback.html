@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>QuickBooks Authorization Complete</title>
+</head>
+<body>
+<h1>QuickBooks authorization complete</h1>
+<p>Copy the values below and paste them back to Claude to finish connecting:</p>
+<pre id="out" style="background:#f0f0f0; padding:1em; font-size:1.1em;">Loading...</pre>
+<script>
+  var params = new URLSearchParams(window.location.search);
+  var code = params.get('code');
+  var realmId = params.get('realmId');
+  var state = params.get('state');
+  var error = params.get('error');
+  var out = document.getElementById('out');
+  if (error) {
+    out.textContent = 'Authorization failed: ' + error;
+  } else {
+    out.textContent =
+      'code: ' + code + '\n' +
+      'realmId: ' + realmId + '\n' +
+      'state: ' + state;
+  }
+</script>
+</body>
+</html>
